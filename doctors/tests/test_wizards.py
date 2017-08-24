@@ -53,7 +53,7 @@ class TestDoctorRecordSessionWizard(TestCase):
         wizard = response.context['wizard']
         self.assertEqual(response.status_code, 200)
         self.assertEqual(wizard['steps'].current, '1')
-        records = DoctorRecord.get_invalid_date_record(doctor)
+        records = DoctorRecord.get_valid_dates_record(doctor)
         self.wizard_steps_data[1]['records'] = records
         response = self.client.post(self.wizard_url, self.wizard_steps_data[1])
         self.assertEqual(response.status_code, 200)
@@ -67,7 +67,7 @@ class TestDoctorRecordSessionWizard(TestCase):
         wizard = response.context['wizard']
         self.assertEqual(response.status_code, 200)
         self.assertEqual(wizard['steps'].current, '1')
-        records = DoctorRecord.get_invalid_date_record(doctor)
+        records = DoctorRecord.get_valid_dates_record(doctor)
         self.wizard_steps_data[1]['records'] = records
         response = self.client.post(self.wizard_url, self.wizard_steps_data[1])
         self.assertEqual(response.status_code, 200)

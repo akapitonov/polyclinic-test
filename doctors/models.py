@@ -52,7 +52,6 @@ class DoctorRecord(models.Model):
     def __str__(self):
         return "%s: %s" % (self.doctor, self.date_record)
 
-
     @staticmethod
     def _get_times_for_today(today, occupied=None):
         hour = today.hour
@@ -109,6 +108,5 @@ class DoctorRecord(models.Model):
                 new_dates[today_format] = cls._get_times_for_today(today)
 
             new_dates.update({"all": AVAILABLE_TIMES})
-
             return json.dumps(new_dates)
         return None

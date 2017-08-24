@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf.urls.static import static
+from django.conf import settings
 from django.views.generic import TemplateView
 
 urlpatterns = [
@@ -23,3 +25,5 @@ urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^doctors/', include('doctors.urls')),
 ]
+
+# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
