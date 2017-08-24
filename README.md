@@ -2,8 +2,7 @@
 *Django сервис, организующий запись к врачу на прием в поликлиннику.*
 
 ##Тестирование
-.. image:: https://travis-ci.org/notsnake/polyclinic-test.svg?branch=master
-    :target: https://travis-ci.org/notsnake/polyclinic-test
+[![Build Status](https://travis-ci.org/notsnake/polyclinic-test.svg?branch=master)](https://travis-ci.org/notsnake/polyclinic-test)
 
 **Версия python: 3**
 
