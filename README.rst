@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.org/notsnake/polyclinic-test.svg?branch=master
+    :target: https://travis-ci.org/notsnake/polyclinic-test
+
 Python(3)
 
 Django сервис, организующий запись к врачу на прием в поликлиннику.
