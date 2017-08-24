@@ -67,6 +67,15 @@ class DoctorRecord(models.Model):
                     today_times.append(time)
         return today_times
 
+    @staticmethod
+    def _modify_date(dt, format):
+        try:
+            date_new = dt.strftime(format)
+        except ValueError:
+            print('Wrong date format')
+            raise
+        return date_new
+
     @classmethod
     def _get_invalid_doctor_date_record(cls, doctor):
         """
@@ -80,15 +89,16 @@ class DoctorRecord(models.Model):
         occupied_dates = cls.objects.filter(date_record__gte=today,
                                             doctor=doctor).values_list('date_record', flat=True).order_by('date_record')
         for date in occupied_dates:
-            only_date = date.strftime('%Y-%m-%d')
+            only_date = cls._modify_date(date, '%Y-%m-%d')
+            time_date = cls._modify_date(date, '%H-00')
             if only_date in new_dates:
                 val = new_dates[only_date]
                 if val is None:
-                    new_dates[only_date] = [date.strftime('%H-00')]
+                    new_dates[only_date] = [time_date]
                 else:
-                    new_dates[only_date].append(date.strftime('%H-00'))
+                    new_dates[only_date].append(time_date)
             else:
-                new_dates[only_date] = [date.strftime('%H-00')]
+                new_dates[only_date] = [time_date]
         return new_dates
 
     @classmethod
@@ -101,7 +111,7 @@ class DoctorRecord(models.Model):
             for date, times in occupied_dates.items():
                 new_dates[date] = [time for time in AVAILABLE_TIMES if time not in times]
 
-            today_format = today.strftime('%Y-%m-%d')
+            today_format = cls._modify_date(today, '%Y-%m-%d')
             if today_format in new_dates:
                 new_dates[today_format] = cls._get_times_for_today(today, new_dates[today_format])
             else:
