@@ -1,7 +1,9 @@
 # Polyclinic
 *Django сервис, организующий запись к врачу на прием в поликлиннику.*
 
-##Тестирование
+Тестирование
+------------
+
 [![Build Status](https://travis-ci.org/notsnake/polyclinic-test.svg?branch=master)](https://travis-ci.org/notsnake/polyclinic-test)
 
 **Версия python: 3**
