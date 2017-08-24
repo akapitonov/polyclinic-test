@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor record</title>
+</head>
+<body>
+    <h2>Извините, но во время заполнения данных возникли ошибки!</h2>
+    {% for error in errors %}
+        <p>{{ error }}</p>
+    {% endfor %}
+    <p>Записаться на <a href="{% url 'doctor-record' %}">прием</a></p>
+    <p>Вернуться на главную <a href="{% url 'base' %}">страницу</a></p>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor record</title>
+</head>
+<body>
+    <h2>Поздравляем, Вы успешно записались на прием к врачу!</h2>
+    <p>Ваш доктор: {{ record.doctor }}</p>
+    <p>Время приема: {{ record.date_record }}</p>
+    <p>Записаться еще на <a href="{% url 'doctor-record' %}">прием</a></p>
+    <p>Вернуться на главную <a href="{% url 'base' %}">страницу</a></p>
+</body>
+</html>

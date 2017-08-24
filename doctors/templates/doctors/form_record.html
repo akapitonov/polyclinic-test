@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Record</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'doctors/datetimepicker/jquery.datetimepicker.css' %}">
+
+</head>
+<body>
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Записаться">
+    </form>
+    <script src="{% static 'doctors/datetimepicker/jquery.js' %}"></script>
+    <script src="{% static 'doctors/datetimepicker/jquery.datetimepicker.full.min.js' %}"></script>
+    <script src="{% static 'doctors/js/script.js' %}"></script>
+</body>
+</html>
